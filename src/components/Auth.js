@@ -10,7 +10,6 @@ const Auth = () => {
     e.preventDefault();
     dispatch(authActions.login())
   }
-
   return (
     <main className={classes.auth}>
       <section>
