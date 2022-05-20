@@ -1,14 +1,23 @@
 import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import Counter from './components/Counter';
 import Auth from './components/Auth';
 import Header from './components/Header';
+import UserProfile from './components/UserProfile'
+
+
+
 
 
 function App() {
+  const isAuth = useSelector(state => state.auth.isAuth);
+  console.log(isAuth);
+
+  const mainContent = isAuth ? <UserProfile /> : <Auth />
   return (
     <Fragment>
-      <Header />
-      <Auth />
+      <Header isAuth={isAuth} />
+      {mainContent}
       <Counter />
     </Fragment>
   );
